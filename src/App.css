@@ -1,7 +1,27 @@
+@font-face {
+  font-family: smurfFont;
+  src: url(./assets/GROBOLD.ttf);
+}
+
 html, body, #root, .App {
   height:100%;
-  background: #007bff!important;
+  
+  /* background: #007bff!important; */
+  font-family: smurfFont;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-image: url("./assets/smurf-bg_00.jpg");
+  background-repeat: repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+/* .App {
+ 
+} */
 
 main {
   background: white;
