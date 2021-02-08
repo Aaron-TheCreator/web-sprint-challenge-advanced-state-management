@@ -22,7 +22,7 @@ export class SmurfDisplay extends React.Component {
         return(<div className="smurf-display">{
             this.props.is_loading ? (
                 <div className="loading">
-                    <h4>LOADING</h4>
+                    <h2>LOADING</h2>
                 </div>
             ) : this.props.error ? (
                 <div className="error">

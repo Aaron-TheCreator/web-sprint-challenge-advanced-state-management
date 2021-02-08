@@ -5,11 +5,13 @@ export const LOAD_SUCCESS = "LOAD_SUCCESS";
 export const PUSH_DATA = "PUSH_DATA";
 export const ERROR = "ERROR";
 
+const apiURL = `http://localhost:3333/smurfs`;
+
 export const loadSmurfDisplay = () => (dispatch) => {
     // transition to IS_LOADING action.type
     dispatch({ type: IS_LOADING });
 
-    const apiURL = `http://localhost:3333/smurfs`;
+    // const getURL = `http://localhost:3333/smurfs`;
 
     axios
         .get(apiURL)
@@ -19,6 +21,20 @@ export const loadSmurfDisplay = () => (dispatch) => {
         })
         .catch( (err) => {
             console.log(`ab: actions.index: loadSmurfDisplay: axios.catch: err:`, err)
+        })
+}
+
+export const pushData = (data) => (dispatch) => {
+    dispatch({ type: IS_LOADING });
+
+    axios
+        .post(apiURL, data)
+        .then( (res) => {
+            console.log(`ab: actions.index: pushData: axios.then: res:`, res)
+            dispatch({ type: LOAD_SUCCESS, payload: res.data })
+        })
+        .catch( (err) => {
+            console.error(`ab: actions.index: pushData: axios.catch: err:`, err)
         })
 }
 
